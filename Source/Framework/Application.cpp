@@ -1,7 +1,5 @@
 #include "Framework/Application.h"
 #include "Framework/Renderer.h"
-#include "Framework/Editor.h"
-#include "Framework/Input.h"
 #include "Utilities/Logger.h"
 
 #define WIN32_LEAN_AND_MEAN 
@@ -25,11 +23,9 @@ using namespace EngineInternal;
 Application::Application()
 {
 	RegisterWindowClass();
-
 	renderer = new Renderer(applicationName, windowWidth, windowHeight);
-	editor = new Editor(this);
 
-	LOG("Successfully initialized - 'Insert Application Name'");
+	LOG("Successfully initialized - 'Compute With DirectX12 Tutorial'");
 }
 
 void Application::Run()
@@ -75,14 +71,7 @@ void Application::Start()
 
 void Application::Update(float deltaTime)
 {
-	Input::Update();
-
-	editor->Update(deltaTime);
-
-	if(Input::GetKeyDown(KeyCode::Escape))
-	{
-		runApplication = false;
-	}
+	// Insert potential update loop for compute pipelines //
 }
 
 void Application::Render()
@@ -91,6 +80,7 @@ void Application::Render()
 	renderer->Render();
 }
 
+#pragma region WindowsPlatform
 void Application::RegisterWindowClass()
 {
 	WNDCLASSEXW windowClassDescription = {};
@@ -131,3 +121,4 @@ LRESULT Application::WindowsCallback(HWND hwnd, UINT message, WPARAM wParam, LPA
 
 	return ::DefWindowProcW(hwnd, message, wParam, lParam);
 }
+#pragma endregion

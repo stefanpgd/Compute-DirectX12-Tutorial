@@ -10,6 +10,8 @@ class Renderer
 public:
 	Renderer(const std::wstring& applicationName, unsigned int windowWidth, unsigned int windowHeight);
 	
+	void RunComputePipeline();
+
 	void Render();
 	void Resize();
 

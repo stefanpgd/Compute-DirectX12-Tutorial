@@ -26,8 +26,6 @@ namespace RendererInternal
 	DXDescriptorHeap* CBVHeap = nullptr;
 	DXDescriptorHeap* DSVHeap = nullptr;
 	DXDescriptorHeap* RTVHeap = nullptr;
-
-	Texture* defaultTexture = nullptr;
 }
 using namespace RendererInternal;
 
@@ -50,6 +48,11 @@ Renderer::Renderer(const std::wstring& applicationName, unsigned int windowWidth
 	InitializeImGui();
 }
 
+void Renderer::RunComputePipeline()
+{
+
+}
+
 void Renderer::Render()
 {
 	unsigned int backBufferIndex = window->GetCurrentBackBufferIndex();
@@ -61,7 +64,6 @@ void Renderer::Render()
 	CD3DX12_CPU_DESCRIPTOR_HANDLE dsvHandle = window->GetDepthDSV();
 
 	directCommands->ResetCommandList(backBufferIndex);
-
 	commandList->SetDescriptorHeaps(1, heaps);
 	commandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
@@ -140,13 +142,6 @@ unsigned int DXAccess::GetCurrentBackBufferIndex()
 	}
 
 	return window->GetCurrentBackBufferIndex();
-}
-
-Texture* DXAccess::GetDefaultTexture()
-{
-	// Incase an texture isn't present, the 'default' texture gets loaded in
-	// Similar to Valve's ERROR 3D model
-	return defaultTexture;
 }
 
 DXDescriptorHeap* DXAccess::GetDescriptorHeap(D3D12_DESCRIPTOR_HEAP_TYPE type)

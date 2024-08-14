@@ -57,7 +57,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\stb;$(SolutionDir)Dependencies\glm;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\Microsoft;$(SolutionDir)Dependencies\tinyGLTF;$(SolutionDir)Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\stb;$(SolutionDir)Dependencies\glm;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\Microsoft;$(SolutionDir)Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -74,7 +74,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\stb;$(SolutionDir)Dependencies\glm;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\Microsoft;$(SolutionDir)Dependencies\tinyGLTF;$(SolutionDir)Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\stb;$(SolutionDir)Dependencies\glm;$(SolutionDir)Dependencies\ImGui;$(SolutionDir)Dependencies\Microsoft;$(SolutionDir)Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -86,10 +86,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Dependencies\tinyglTF\tiny_gltf.cpp" />
-    <ClCompile Include="Source\Graphics\Model.cpp" />
-    <ClCompile Include="Source\Framework\Input.cpp" />
-    <ClCompile Include="Source\Framework\Editor.cpp" />
     <ClCompile Include="Dependencies\ImGui\imgui.cpp" />
     <ClCompile Include="Dependencies\ImGui\imgui_demo.cpp" />
     <ClCompile Include="Dependencies\ImGui\imgui_draw.cpp" />
@@ -98,25 +94,19 @@
     <ClCompile Include="Dependencies\ImGui\imgui_tables.cpp" />
     <ClCompile Include="Dependencies\ImGui\imgui_widgets.cpp" />
     <ClCompile Include="Source\Graphics\DXUploadBuffer.cpp" />
-    <ClCompile Include="Source\Graphics\RenderStage.cpp" />
     <ClCompile Include="Source\Graphics\DXStructuredBuffer.cpp" />
     <ClCompile Include="Source\Graphics\DXComputePipeline.cpp" />
-    <ClCompile Include="Source\Graphics\DepthBuffer.cpp" />
     <ClCompile Include="Source\Graphics\DXCommands.cpp" />
     <ClCompile Include="Source\Graphics\DXDescriptorHeap.cpp" />
     <ClCompile Include="Source\Graphics\DXDevice.cpp" />
-    <ClCompile Include="Source\Graphics\DXPipeline.cpp" />
     <ClCompile Include="Source\Graphics\DXRootSignature.cpp" />
-    <ClCompile Include="Source\Graphics\Mesh.cpp" />
     <ClCompile Include="Source\Graphics\Texture.cpp" />
-    <ClCompile Include="Source\Graphics\Transform.cpp" />
     <ClCompile Include="Source\Graphics\Window.cpp" />
     <ClCompile Include="Source\Framework\Renderer.cpp" />
     <ClCompile Include="Source\Framework\Application.cpp" />
     <ClCompile Include="Source\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Headers\Framework\Editor.h" />
     <ClInclude Include="Headers\Graphics\DXCommon.h" />
     <ClInclude Include="Headers\Graphics\DXUploadBuffer.h" />
     <ClInclude Include="Headers\Utilities\Random.h" />
@@ -131,24 +121,17 @@
     <ClInclude Include="Headers\Graphics\DXStructuredBuffer.h" />
     <ClInclude Include="Headers\Graphics\DXComputePipeline.h" />
     <ClInclude Include="Headers\Framework\Application.h" />
-    <ClInclude Include="Headers\Graphics\DepthBuffer.h" />
     <ClInclude Include="Headers\Graphics\DXAccess.h" />
     <ClInclude Include="Headers\Graphics\DXCommands.h" />
     <ClInclude Include="Headers\Graphics\DXDescriptorHeap.h" />
     <ClInclude Include="Headers\Graphics\DXDevice.h" />
-    <ClInclude Include="Headers\Graphics\DXPipeline.h" />
     <ClInclude Include="Headers\Graphics\DXRootSignature.h" />
     <ClInclude Include="Headers\Graphics\DXUtilities.h" />
-    <ClInclude Include="Headers\Graphics\Mesh.h" />
     <ClInclude Include="Headers\Graphics\Texture.h" />
-    <ClInclude Include="Headers\Graphics\Transform.h" />
     <ClInclude Include="Headers\Graphics\Window.h" />
     <ClInclude Include="Headers\Framework\Mathematics.h" />
     <ClInclude Include="Headers\Framework\Renderer.h" />
     <ClInclude Include="Headers\Utilities\Logger.h" />
-    <ClInclude Include="Headers\Graphics\RenderStage.h" />
-    <ClInclude Include="Headers\Framework\Input.h" />
-    <ClInclude Include="Headers\Graphics\Model.h" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Dependencies\Microsoft\d3dcompiler_47.dll">
@@ -156,17 +139,11 @@
     </CopyFileToFolders>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="Source\Shaders\screen.vertex.hlsl">
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.1</ShaderModel>
-    </FxCompile>
-    <FxCompile Include="Source\Shaders\screen.pixel.hlsl">
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.1</ShaderModel>
+    <FxCompile Include="Source\Shaders\hello.compute.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compute</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Compute</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4.0</ShaderModel>
     </FxCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

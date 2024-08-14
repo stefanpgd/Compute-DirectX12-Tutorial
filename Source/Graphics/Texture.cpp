@@ -45,7 +45,6 @@ int Texture::GetUAVIndex()
 
 CD3DX12_GPU_DESCRIPTOR_HANDLE Texture::GetSRV()
 {
-	// TODO: Honestly we can add a function in DXAccess along the lines of 'DXAccess::GetDescriptor(heapType, index) //
 	DXDescriptorHeap* SRVHeap = DXAccess::GetDescriptorHeap(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
 	return SRVHeap->GetGPUHandleAt(srvIndex);
 }

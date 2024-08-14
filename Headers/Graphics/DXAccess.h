@@ -16,5 +16,4 @@ namespace DXAccess
 	Window* GetWindow();
 
 	unsigned int GetCurrentBackBufferIndex();
-	Texture* GetDefaultTexture();
 }

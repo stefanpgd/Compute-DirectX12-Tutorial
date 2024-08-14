@@ -19,7 +19,6 @@ DXRootSignature::DXRootSignature(CD3DX12_ROOT_PARAMETER1* rootParameters,
 	}
 
 	// Create Root Signature //
-	// PLACEHOLDER //
 	const CD3DX12_STATIC_SAMPLER_DESC sampler(0, D3D12_FILTER_MIN_MAG_MIP_LINEAR);
 
 	CD3DX12_VERSIONED_ROOT_SIGNATURE_DESC rootSignatureDescription;
