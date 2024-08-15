@@ -93,22 +93,23 @@
     <ClCompile Include="Dependencies\ImGui\imgui_impl_win32.cpp" />
     <ClCompile Include="Dependencies\ImGui\imgui_tables.cpp" />
     <ClCompile Include="Dependencies\ImGui\imgui_widgets.cpp" />
-    <ClCompile Include="Source\Graphics\DXUploadBuffer.cpp" />
-    <ClCompile Include="Source\Graphics\DXStructuredBuffer.cpp" />
-    <ClCompile Include="Source\Graphics\DXComputePipeline.cpp" />
     <ClCompile Include="Source\Graphics\DXCommands.cpp" />
     <ClCompile Include="Source\Graphics\DXDescriptorHeap.cpp" />
     <ClCompile Include="Source\Graphics\DXDevice.cpp" />
     <ClCompile Include="Source\Graphics\DXRootSignature.cpp" />
-    <ClCompile Include="Source\Graphics\Texture.cpp" />
     <ClCompile Include="Source\Graphics\Window.cpp" />
     <ClCompile Include="Source\Framework\Renderer.cpp" />
     <ClCompile Include="Source\Framework\Application.cpp" />
     <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Tutorial\ComputeBuffer.cpp" />
+    <ClCompile Include="Source\Tutorial\ComputePipeline.cpp" />
+    <ClCompile Include="Source\Tutorial\ComputeRenderingStage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\Graphics\DXCommon.h" />
-    <ClInclude Include="Headers\Graphics\DXUploadBuffer.h" />
+    <ClInclude Include="Headers\Tutorial\ComputeRenderingStage.h" />
+    <ClInclude Include="Headers\Tutorial\ComputeBuffer.h" />
+    <ClInclude Include="Headers\Tutorial\ComputePipeline.h" />
     <ClInclude Include="Headers\Utilities\Random.h" />
     <ClInclude Include="Dependencies\ImGui\imconfig.h" />
     <ClInclude Include="Dependencies\ImGui\imgui.h" />
@@ -118,8 +119,6 @@
     <ClInclude Include="Dependencies\ImGui\imstb_rectpack.h" />
     <ClInclude Include="Dependencies\ImGui\imstb_textedit.h" />
     <ClInclude Include="Dependencies\ImGui\imstb_truetype.h" />
-    <ClInclude Include="Headers\Graphics\DXStructuredBuffer.h" />
-    <ClInclude Include="Headers\Graphics\DXComputePipeline.h" />
     <ClInclude Include="Headers\Framework\Application.h" />
     <ClInclude Include="Headers\Graphics\DXAccess.h" />
     <ClInclude Include="Headers\Graphics\DXCommands.h" />
@@ -127,7 +126,6 @@
     <ClInclude Include="Headers\Graphics\DXDevice.h" />
     <ClInclude Include="Headers\Graphics\DXRootSignature.h" />
     <ClInclude Include="Headers\Graphics\DXUtilities.h" />
-    <ClInclude Include="Headers\Graphics\Texture.h" />
     <ClInclude Include="Headers\Graphics\Window.h" />
     <ClInclude Include="Headers\Framework\Mathematics.h" />
     <ClInclude Include="Headers\Framework\Renderer.h" />

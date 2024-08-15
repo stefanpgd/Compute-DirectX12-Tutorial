@@ -71,7 +71,7 @@ void Application::Start()
 
 void Application::Update(float deltaTime)
 {
-	// Insert potential update loop for compute pipelines //
+	renderer->Update(deltaTime);
 }
 
 void Application::Render()

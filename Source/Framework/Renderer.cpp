@@ -1,20 +1,20 @@
 #include "Framework/Renderer.h"
 
-// DirectX Components //
+// DirectX/Core Components //
 #include "Graphics/DXAccess.h"
 #include "Graphics/DXDevice.h"
 #include "Graphics/DXCommands.h"
 #include "Graphics/DXUtilities.h"
-
-// Renderer Components //
 #include "Graphics/Window.h"
-#include "Graphics/Texture.h"
 
 #include <cassert>
 #include <imgui.h>
 #include <imgui_impl_win32.h>
 #include <imgui_impl_dx12.h>
 
+#include "Tutorial/ComputeRenderingStage.h"
+
+#pragma region RendererInternal
 namespace RendererInternal
 {
 	Window* window = nullptr;
@@ -28,6 +28,17 @@ namespace RendererInternal
 	DXDescriptorHeap* RTVHeap = nullptr;
 }
 using namespace RendererInternal;
+#pragma endregion
+
+void Renderer::InitializeComputePipeline()
+{
+	computeRenderingStage = new ComputeRenderingStage();
+}
+
+void Renderer::RecordComputePipeline(ComPtr<ID3D12GraphicsCommandList4> commandList)
+{
+	computeRenderingStage->RecordStage(commandList);
+}
 
 Renderer::Renderer(const std::wstring& applicationName, unsigned int windowWidth,
 	unsigned int windowHeight)
@@ -46,35 +57,40 @@ Renderer::Renderer(const std::wstring& applicationName, unsigned int windowWidth
 	window = new Window(applicationName, windowWidth, windowHeight);
 
 	InitializeImGui();
+	InitializeComputePipeline();
 }
 
-void Renderer::RunComputePipeline()
+void Renderer::Update(float deltaTime)
 {
-
+	// potentially update rendering systems //
 }
 
 void Renderer::Render()
 {
+	// 1. Grab resources relevant to record this frame //
 	unsigned int backBufferIndex = window->GetCurrentBackBufferIndex();
 	ComPtr<ID3D12GraphicsCommandList4> commandList = directCommands->GetGraphicsCommandList();
 	ID3D12DescriptorHeap* heaps[] = { CBVHeap->GetAddress() };
 
-	ComPtr<ID3D12Resource> renderTargetBuffer = window->GetCurrentScreenBuffer();
+	ComPtr<ID3D12Resource> renderTarget = window->GetCurrentScreenBuffer();
 	CD3DX12_CPU_DESCRIPTOR_HANDLE rtvHandle = window->GetCurrentScreenRTV();
-	CD3DX12_CPU_DESCRIPTOR_HANDLE dsvHandle = window->GetDepthDSV();
 
+	// 2. Reset & Prepare the commandlist and Descriptor Heap 
 	directCommands->ResetCommandList(backBufferIndex);
 	commandList->SetDescriptorHeaps(1, heaps);
-	commandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-	TransitionResource(renderTargetBuffer.Get(), D3D12_RESOURCE_STATE_PRESENT, D3D12_RESOURCE_STATE_RENDER_TARGET);
-	BindAndClearRenderTarget(window, &rtvHandle, &dsvHandle);
+	// 3. Change the state of the renderTarget so we can render to it, then bind & clear it //
+	TransitionResource(renderTarget.Get(), D3D12_RESOURCE_STATE_PRESENT, D3D12_RESOURCE_STATE_RENDER_TARGET);
+	BindAndClearRenderTarget(window, &rtvHandle, nullptr);
 
-	// Insert new rendering code here //
+	// 4. Record out compute pipeline(s) //
+	RecordComputePipeline(commandList);
 
+	// 5. Render UI/ImGui and prepare render target for presenting //
 	ImGui_ImplDX12_RenderDrawData(ImGui::GetDrawData(), commandList.Get());
-	TransitionResource(renderTargetBuffer.Get(), D3D12_RESOURCE_STATE_RENDER_TARGET, D3D12_RESOURCE_STATE_PRESENT);
+	TransitionResource(renderTarget.Get(), D3D12_RESOURCE_STATE_RENDER_TARGET, D3D12_RESOURCE_STATE_PRESENT);
 
+	// 6. Execute and present the next frame //
 	directCommands->ExecuteCommandList(backBufferIndex);
 	window->Present();
 	directCommands->WaitForFenceValue(window->GetCurrentBackBufferIndex());

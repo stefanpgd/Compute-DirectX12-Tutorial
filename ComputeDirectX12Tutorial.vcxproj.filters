@@ -13,141 +13,162 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Dependencies">
+      <UniqueIdentifier>{f954bef4-ba0d-4aa8-a1f1-22fc30593885}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Framework">
+      <UniqueIdentifier>{ab76eb19-f2b1-4a55-845e-68249b1cdb56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Graphics">
+      <UniqueIdentifier>{bd040373-1495-4192-8e6b-570fb3d47c72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tutorial">
+      <UniqueIdentifier>{74c3126a-4593-4320-9d9d-7a400d62f27c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utilities">
+      <UniqueIdentifier>{4b26deec-409b-4859-acef-e2f2f6d901c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Dependencies">
+      <UniqueIdentifier>{2bb6dd13-4ddb-4f28-9a3c-7f2d98d69aad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Framework">
+      <UniqueIdentifier>{6ba9e22f-f67e-4c89-8e58-6de433109045}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphics">
+      <UniqueIdentifier>{37aef6e8-4cbe-4581-b09a-a23cf506f4d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tutorial">
+      <UniqueIdentifier>{5fe5accb-afb2-4d99-8fb9-728c99117d23}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Framework\Application.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Dependencies\ImGui\imgui.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Dependencies\ImGui\imgui_demo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Dependencies\ImGui\imgui_draw.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Dependencies\ImGui\imgui_impl_dx12.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Dependencies\ImGui\imgui_impl_win32.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Dependencies\ImGui\imgui_tables.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Dependencies\ImGui\imgui_widgets.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Framework\Renderer.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Framework</Filter>
     </ClCompile>
     <ClCompile Include="Source\Graphics\DXCommands.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Source\Graphics\DXDescriptorHeap.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Source\Graphics\DXDevice.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Source\Graphics\DXRootSignature.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Graphics\Texture.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Dependencies\ImGui\imgui.cpp">
+      <Filter>Source Files\Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\ImGui\imgui_demo.cpp">
+      <Filter>Source Files\Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\ImGui\imgui_draw.cpp">
+      <Filter>Source Files\Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\ImGui\imgui_impl_dx12.cpp">
+      <Filter>Source Files\Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\ImGui\imgui_impl_win32.cpp">
+      <Filter>Source Files\Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\ImGui\imgui_tables.cpp">
+      <Filter>Source Files\Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\ImGui\imgui_widgets.cpp">
+      <Filter>Source Files\Dependencies</Filter>
     </ClCompile>
     <ClCompile Include="Source\Graphics\Window.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Graphics\DXComputePipeline.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Source\Framework\Renderer.cpp">
+      <Filter>Source Files\Framework</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Graphics\DXStructuredBuffer.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Source\Tutorial\ComputeBuffer.cpp">
+      <Filter>Source Files\Tutorial</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Graphics\DXUploadBuffer.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Source\Tutorial\ComputePipeline.cpp">
+      <Filter>Source Files\Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Tutorial\ComputeRenderingStage.cpp">
+      <Filter>Source Files\Tutorial</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Headers\Framework\Application.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Dependencies\ImGui\imconfig.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Dependencies\ImGui\imgui.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Dependencies</Filter>
     </ClInclude>
     <ClInclude Include="Dependencies\ImGui\imgui_impl_dx12.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Dependencies</Filter>
     </ClInclude>
     <ClInclude Include="Dependencies\ImGui\imgui_impl_win32.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Dependencies</Filter>
     </ClInclude>
     <ClInclude Include="Dependencies\ImGui\imgui_internal.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Dependencies</Filter>
     </ClInclude>
     <ClInclude Include="Dependencies\ImGui\imstb_rectpack.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Dependencies</Filter>
     </ClInclude>
     <ClInclude Include="Dependencies\ImGui\imstb_textedit.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Dependencies</Filter>
     </ClInclude>
     <ClInclude Include="Dependencies\ImGui\imstb_truetype.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Dependencies</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Framework\Renderer.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Dependencies\ImGui\imconfig.h">
+      <Filter>Header Files\Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Framework\Application.h">
+      <Filter>Header Files\Framework</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Graphics\DXAccess.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Graphics\DXCommands.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\Graphics\DXDescriptorHeap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\Graphics\DXDevice.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\Graphics\DXRootSignature.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\Graphics\DXUtilities.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\Graphics\Texture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\Graphics\Window.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\Framework\Mathematics.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\Utilities\Logger.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\Graphics\DXComputePipeline.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\Graphics\DXStructuredBuffer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\Utilities\Random.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Graphics\DXCommon.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Graphics\DXUploadBuffer.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Headers\Graphics\DXDescriptorHeap.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Graphics\DXDevice.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Graphics\DXRootSignature.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Graphics\DXUtilities.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Utilities\Logger.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Framework\Mathematics.h">
+      <Filter>Header Files\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Framework\Renderer.h">
+      <Filter>Header Files\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Utilities\Random.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Graphics\Window.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Tutorial\ComputeBuffer.h">
+      <Filter>Header Files\Tutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Tutorial\ComputePipeline.h">
+      <Filter>Header Files\Tutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Tutorial\ComputeRenderingStage.h">
+      <Filter>Header Files\Tutorial</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

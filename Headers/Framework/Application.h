@@ -26,10 +26,10 @@ private:
 	static LRESULT CALLBACK WindowsCallback(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 private:
-	std::wstring applicationName = L"Flux";
+	std::wstring applicationName = L"Compute DirectX 12 Tutorial";
 	bool runApplication = true;
 
-	unsigned int windowWidth = 1080;
+	unsigned int windowWidth = 720;
 	unsigned int windowHeight = 720;
 
 	// Systems //
