@@ -90,7 +90,7 @@ inline void UploadPixelShaderResource(ComPtr<ID3D12Resource>& destinationResourc
 		&resourceDescription, D3D12_RESOURCE_STATE_COMMON, nullptr, IID_PPV_ARGS(&destinationResource)));
 
 	// 1.b Allocate heap in RAM to upload the texture to //
-	unsigned int size = GetRequiredIntermediateSize(destinationResource.Get(), 0, 1);
+	UINT64 size = GetRequiredIntermediateSize(destinationResource.Get(), 0, 1);
 	D3D12_RESOURCE_DESC bufferDescription = CD3DX12_RESOURCE_DESC::Buffer(size);
 
 	ThrowIfFailed(device->CreateCommittedResource(&uploadHeap, D3D12_HEAP_FLAG_NONE,

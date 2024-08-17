@@ -1,6 +1,8 @@
 #include "Tutorial/ComputePipeline.h"
+#include "Graphics/DXUtilities.h"
+#include "Utilities/Logger.h"
 
-ComputePipeline::ComputePipeline(const std::string& shaderFilePath)
+ComputePipeline::ComputePipeline(DXRootSignature* rootSignature, const std::string& shaderFilePath) : rootSignature(rootSignature)
 {
 }
 

@@ -1,4 +1,7 @@
 #include "Tutorial/ComputeRenderingStage.h"
+#include "Graphics/DXAccess.h"
+#include "Graphics/Window.h"
+#include "Graphics/DXUtilities.h"
 
 ComputeRenderingStage::ComputeRenderingStage()
 {

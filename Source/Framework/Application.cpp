@@ -39,7 +39,7 @@ void Application::Run()
 	{
 		// DeltaTime //
 		auto t1 = std::chrono::time_point_cast<std::chrono::milliseconds>((clock->now())).time_since_epoch();
-		deltaTime = (t1 - t0).count() * .001;
+		deltaTime = (t1 - t0).count() * .001f;
 		t0 = t1;
 
 		// Window's Callback //

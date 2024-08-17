@@ -5,15 +5,13 @@
 class ComputeBuffer
 {
 public:
-	ComputeBuffer(int width, int height, DXGI_FORMAT format);
-
-	ID3D12Resource* GetAddress();
+	ComputeBuffer();
 
 	// Insert Tutorial Functions //
 
 private:
 	void AllocateDataOnGPU();
-	void CreateDescriptors();
+	void CreateDescriptor();
 
 private:
 	// Insert Tutorial Variables //

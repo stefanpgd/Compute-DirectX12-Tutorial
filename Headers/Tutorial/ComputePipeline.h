@@ -3,10 +3,12 @@
 #include "Graphics/DXCommon.h"
 #include <string>
 
+class DXRootSignature;
+
 class ComputePipeline
 {
 public:
-	ComputePipeline(const std::string& shaderFilePath);
+	ComputePipeline(DXRootSignature* rootSignature, const std::string& shaderFilePath);
 
 	ID3D12PipelineState* GetAddress();
 

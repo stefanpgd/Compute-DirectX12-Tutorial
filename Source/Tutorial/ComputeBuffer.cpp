@@ -1,6 +1,8 @@
 #include "Tutorial/ComputeBuffer.h"
+#include "Graphics/DXAccess.h"
+#include "Graphics/DXDescriptorHeap.h"
 
-ComputeBuffer::ComputeBuffer(int width, int height, DXGI_FORMAT format)
+ComputeBuffer::ComputeBuffer()
 {
 }
 
@@ -13,6 +15,6 @@ void ComputeBuffer::AllocateDataOnGPU()
 {
 }
 
-void ComputeBuffer::CreateDescriptors()
+void ComputeBuffer::CreateDescriptor()
 {
 }

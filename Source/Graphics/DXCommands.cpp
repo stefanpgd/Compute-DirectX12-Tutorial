@@ -15,7 +15,7 @@ DXCommands::DXCommands(D3D12_COMMAND_LIST_TYPE type, unsigned int commandAllocat
 
 	frameFenceValues = new uint64_t[commandAllocatorCount];
 
-	for(int i = 0; i < commandAllocatorCount; i++)
+	for(unsigned int i = 0; i < commandAllocatorCount; i++)
 	{
 		frameFenceValues[i] = 0;
 	}
@@ -118,7 +118,7 @@ void DXCommands::CreateCommandList()
 
 void DXCommands::CreateCommandAllocators()
 {
-	for(int i = 0; i < commandAllocatorCount; i++)
+	for(unsigned int i = 0; i < commandAllocatorCount; i++)
 	{
 		ComPtr<ID3D12CommandAllocator> commandAllocator;
 		ThrowIfFailed(device->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT, IID_PPV_ARGS(&commandAllocator)));
