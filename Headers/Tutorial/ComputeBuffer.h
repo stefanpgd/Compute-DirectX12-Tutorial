@@ -1,18 +1,11 @@
 #pragma once
+#include <d3d12.h>
+#include <d3dx12.h>
 
-#include "Graphics/DXCommon.h"
+#include <wrl.h>
+using namespace Microsoft::WRL;
 
 class ComputeBuffer
 {
-public:
-	ComputeBuffer();
-
-	// Insert Tutorial Functions //
-
-private:
-	void AllocateDataOnGPU();
-	void CreateDescriptor();
-
-private:
-	// Insert Tutorial Variables //
+	// Insert Tutorial Code //
 };

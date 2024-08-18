@@ -12,12 +12,3 @@ void ComputeRenderingStage::RecordStage(ComPtr<ID3D12GraphicsCommandList4> comma
 {
 
 }
-
-void ComputeRenderingStage::InitializeResources()
-{
-}
-
-void ComputeRenderingStage::InitializePipeline()
-{
-
-}
