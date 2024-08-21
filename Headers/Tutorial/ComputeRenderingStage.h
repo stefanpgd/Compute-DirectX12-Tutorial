@@ -3,6 +3,10 @@
 #include <wrl.h>
 using namespace Microsoft::WRL;
 
+class DXRootSignature;
+class ComputePipeline;
+class ComputeBuffer;
+
 class ComputeRenderingStage
 {
 public:
