@@ -10,11 +10,17 @@ class ComputeBuffer;
 class ComputeRenderingStage
 {
 public:
-	// The Constructor & 'RecordStage' functions will already be called by Renderer.cpp.
-	// This is why they are already present in this file.
 	ComputeRenderingStage();
 
 	void RecordStage(ComPtr<ID3D12GraphicsCommandList4> commandList);
 
-	// Insert Tutorial Code //
+private:
+	void InitializeResources();
+	void InitializePipeline();
+
+private:
+	DXRootSignature* computeRootSignature;
+	ComputePipeline* computePipeline;
+
+	ComputeBuffer* backBuffer;
 };
