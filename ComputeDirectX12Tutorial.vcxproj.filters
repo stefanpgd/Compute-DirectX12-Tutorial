@@ -40,6 +40,9 @@
     <Filter Include="Source Files\Tutorial">
       <UniqueIdentifier>{5fe5accb-afb2-4d99-8fb9-728c99117d23}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Shaders">
+      <UniqueIdentifier>{d1792776-36a2-4620-ae4d-34b030d14736}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\main.cpp">
@@ -172,9 +175,13 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CopyFileToFolders Include="Dependencies\Microsoft\d3dcompiler_47.dll" />
+    <CopyFileToFolders Include="Dependencies\Microsoft\d3dcompiler_47.dll">
+      <Filter>Header Files\Dependencies</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="Source\Shaders\hello.compute.hlsl" />
+    <FxCompile Include="Source\Shaders\hello.compute.hlsl">
+      <Filter>Source Files\Shaders</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>
