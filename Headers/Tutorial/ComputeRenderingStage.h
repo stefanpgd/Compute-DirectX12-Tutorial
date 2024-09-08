@@ -12,7 +12,8 @@ class StructuredBuffer;
 struct Particle 
 {
 	float position[2];
-	float color[3];
+	float color;
+	float velocity[2];
 };
 
 class ComputeRenderingStage
@@ -31,5 +32,7 @@ private:
 	ComputePipeline* computePipeline;
 
 	ComputeBuffer* backBuffer;
+	StructuredBuffer* particleBuffer;
+
 	std::vector<Particle> particles;
 };

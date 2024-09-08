@@ -8,6 +8,7 @@
 #include "Graphics/DXAccess.h"
 #include "Graphics/DXUtilities.h"
 
+#include "Framework/Mathematics.h"
 #include "Utilities/Random.h"
 
 ComputeRenderingStage::ComputeRenderingStage()
@@ -20,7 +21,6 @@ void ComputeRenderingStage::InitializeResources()
 {
 	unsigned int screenWidth = DXAccess::GetWindow()->GetWindowWidth();
 	unsigned int screenHeight = DXAccess::GetWindow()->GetWindowHeight();
-
 	backBuffer = new ComputeBuffer(screenWidth, screenHeight, DXGI_FORMAT_R8G8B8A8_UNORM);
 
 	for(int i = 0; i < 500; i++)
@@ -29,14 +29,16 @@ void ComputeRenderingStage::InitializeResources()
 		particle.position[0] = RandomInRange(0, screenWidth);
 		particle.position[1] = RandomInRange(0, screenHeight);
 
-		particle.color[0] = Random01();
-		particle.color[1] = Random01();
-		particle.color[2] = Random01();
+		particle.color = Random01();
+
+		glm::vec2 velocity = glm::normalize(glm::vec2(RandomInRange(-1.0f, 1.0f), RandomInRange(-1.0f, 1.0f)));
+		particle.velocity[0] = velocity.x;
+		particle.velocity[1] = velocity.y;
 
 		particles.push_back(particle);
 	}
 
-	StructuredBuffer* particleBuffer = new StructuredBuffer(particles.data(), particles.size(), sizeof(Particle));
+	particleBuffer = new StructuredBuffer(particles.data(), particles.size(), sizeof(Particle));
 }
 
 void ComputeRenderingStage::InitializePipeline()
@@ -44,8 +46,12 @@ void ComputeRenderingStage::InitializePipeline()
 	CD3DX12_DESCRIPTOR_RANGE1 backBufferRange[1];
 	backBufferRange[0].Init(D3D12_DESCRIPTOR_RANGE_TYPE_UAV, 1, 0, 0);
 
-	CD3DX12_ROOT_PARAMETER1 pipelineParameters[1];
+	CD3DX12_DESCRIPTOR_RANGE1 particleBufferRange[1];
+	particleBufferRange[0].Init(D3D12_DESCRIPTOR_RANGE_TYPE_UAV, 1, 1, 0);
+
+	CD3DX12_ROOT_PARAMETER1 pipelineParameters[2];
 	pipelineParameters[0].InitAsDescriptorTable(1, &backBufferRange[0]);
+	pipelineParameters[1].InitAsDescriptorTable(1, &particleBufferRange[0]);
 
 	computeRootSignature = new DXRootSignature(pipelineParameters, _countof(pipelineParameters));
 	computePipeline = new ComputePipeline(computeRootSignature, "Source/Shaders/hello.compute.hlsl");
@@ -53,12 +59,13 @@ void ComputeRenderingStage::InitializePipeline()
 
 void ComputeRenderingStage::RecordStage(ComPtr<ID3D12GraphicsCommandList4> commandList)
 {
-	// 1. Bind our root signature & pipeine //
+	// 1. Bind our root signature & pipeline //
 	commandList->SetComputeRootSignature(computeRootSignature->GetAddress());
 	commandList->SetPipelineState(computePipeline->GetAddress());
 
 	// 2. Bind resources needed for our pipeline //
 	commandList->SetComputeRootDescriptorTable(0, backBuffer->GetUAV());
+	commandList->SetComputeRootDescriptorTable(1, particleBuffer->GetUAV());
 
 	// 3. Dispatch our compute shader //
 	unsigned int screenWidth = DXAccess::GetWindow()->GetWindowWidth();
