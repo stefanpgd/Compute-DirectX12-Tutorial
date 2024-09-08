@@ -6,6 +6,14 @@ using namespace Microsoft::WRL;
 class DXRootSignature;
 class ComputePipeline;
 class ComputeBuffer;
+class StructuredBuffer;
+
+#include <vector>
+struct Particle 
+{
+	float position[2];
+	float color[3];
+};
 
 class ComputeRenderingStage
 {
@@ -23,4 +31,5 @@ private:
 	ComputePipeline* computePipeline;
 
 	ComputeBuffer* backBuffer;
+	std::vector<Particle> particles;
 };

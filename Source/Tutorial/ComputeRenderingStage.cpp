@@ -1,11 +1,14 @@
 #include "Tutorial/ComputeRenderingStage.h"
 #include "Tutorial/ComputePipeline.h"
 #include "Tutorial/ComputeBuffer.h"
+#include "Tutorial/StructuredBuffer.h"
 
 #include "Graphics/DXRootSignature.h"
 #include "Graphics/Window.h"
 #include "Graphics/DXAccess.h"
 #include "Graphics/DXUtilities.h"
+
+#include "Utilities/Random.h"
 
 ComputeRenderingStage::ComputeRenderingStage()
 {
@@ -19,6 +22,21 @@ void ComputeRenderingStage::InitializeResources()
 	unsigned int screenHeight = DXAccess::GetWindow()->GetWindowHeight();
 
 	backBuffer = new ComputeBuffer(screenWidth, screenHeight, DXGI_FORMAT_R8G8B8A8_UNORM);
+
+	for(int i = 0; i < 500; i++)
+	{
+		Particle particle;
+		particle.position[0] = RandomInRange(0, screenWidth);
+		particle.position[1] = RandomInRange(0, screenHeight);
+
+		particle.color[0] = Random01();
+		particle.color[1] = Random01();
+		particle.color[2] = Random01();
+
+		particles.push_back(particle);
+	}
+
+	StructuredBuffer* particleBuffer = new StructuredBuffer(particles.data(), particles.size(), sizeof(Particle));
 }
 
 void ComputeRenderingStage::InitializePipeline()

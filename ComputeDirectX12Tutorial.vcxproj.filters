@@ -99,6 +99,9 @@
     <ClCompile Include="Source\Tutorial\ComputeRenderingStage.cpp">
       <Filter>Source Files\Tutorial</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Tutorial\StructuredBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dependencies\ImGui\imgui.h">
@@ -172,6 +175,9 @@
     </ClInclude>
     <ClInclude Include="Headers\Tutorial\ComputeRenderingStage.h">
       <Filter>Header Files\Tutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Tutorial\StructuredBuffer.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

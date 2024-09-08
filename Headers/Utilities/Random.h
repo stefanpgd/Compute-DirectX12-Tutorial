@@ -1,5 +1,5 @@
 #pragma once
-#include <random>
+#include <time.h>
 
 static unsigned int state = time(NULL);
 inline unsigned int xorshift32()

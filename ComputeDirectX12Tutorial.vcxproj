@@ -104,6 +104,7 @@
     <ClCompile Include="Source\Tutorial\ComputeBuffer.cpp" />
     <ClCompile Include="Source\Tutorial\ComputePipeline.cpp" />
     <ClCompile Include="Source\Tutorial\ComputeRenderingStage.cpp" />
+    <ClCompile Include="Source\Tutorial\StructuredBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\Graphics\DXCommon.h" />
@@ -130,6 +131,7 @@
     <ClInclude Include="Headers\Framework\Mathematics.h" />
     <ClInclude Include="Headers\Framework\Renderer.h" />
     <ClInclude Include="Headers\Utilities\Logger.h" />
+    <ClInclude Include="Headers\Tutorial\StructuredBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Dependencies\Microsoft\d3dcompiler_47.dll">
